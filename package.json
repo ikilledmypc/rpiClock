@@ -1,0 +1,32 @@
+{
+  "name": "rpiClock",
+  "version": "1.0.0",
+  "description": "simple but complicated clock",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ikilledmypc/rpiClock.git"
+  },
+  "keywords": [
+    "clock",
+    "rpi",
+    "node.js"
+  ],
+  "author": "Tim Smeets",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ikilledmypc/rpiClock/issues"
+  },
+  "homepage": "https://github.com/ikilledmypc/rpiClock",
+  "dependencies": {
+    "body-parser": "^1.12.4",
+    "bootstrap": "^3.3.4",
+    "express": "^4.12.4",
+    "jquery": "^2.1.4",
+    "lcd": "^1.1.1",
+    "vash": "^0.8.7"
+  }
+}

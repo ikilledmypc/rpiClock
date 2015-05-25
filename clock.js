@@ -1,8 +1,9 @@
 var express = require('express');
 var vash = require('vash');
-var lcdlib = require('./lcdManager');
+//var lcdlib = require('./lcdManager');
 var bodyParser = require('body-parser');
 var app = express();
+var alarms;
 
 var jsonParser = bodyParser.json();
 app.use(express.static(__dirname + '/static'));
@@ -16,11 +17,11 @@ app.get('/', function (req, res) {
 
 app.post('/', function(req,res){
   console.log(req.body);
-  lcdlib.printMessage(req.body.message);
+  //lcdlib.printMessage(req.body.message);
   res.write("200");
 });
 
-var server = app.listen(80, function () {
+var server = app.listen(8080, function () {
 
   var host = server.address().address;
   var port = server.address().port;

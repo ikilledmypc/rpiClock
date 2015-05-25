@@ -51,11 +51,14 @@
     </nav>
 
     <div class="container">
-
-      <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <input id="message" type="text" placeholder="message"/><button id="print">print </button>
+      <div class="col-md-6">
+      <div class="timeInput">
+        <input class="hourInput" id="hour" type="text" placeholder="23"/>:<input id="minute" class="minuteInput" type="text" placeholder="59"/>
+        <button id="newAlarm" class="form-control">new alarm</button>
       </div>
+    </div>
+    <div class="col-md-6 alarmList" >
+    </div>
 
     </div><!-- /.container -->
 

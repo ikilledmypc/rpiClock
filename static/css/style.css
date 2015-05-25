@@ -1,7 +1,30 @@
 body {
   padding-top: 50px;
 }
+
 .starter-template {
   padding: 40px 15px;
   text-align: center;
+}
+
+.hourInput{
+  width: 230px;
+}
+
+.minuteInput{
+  width: 230px;
+}
+
+.timeInput{
+  width: 100%;
+  font-weight: bold;
+  font-size: 200px;
+}
+
+.alarmList {
+  border-style: solid;
+  border-color: black;
+  border-width: 4px;
+  border-radius: 15px;
+  height: 200px;
 }

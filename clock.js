@@ -1,24 +1,25 @@
 var express = require('express');
 var vash = require('vash');
-//var lcdlib = require('./lcdManager');
+var pwm = require('pi-blaster.js');
+var lcdlib = require('./lcdManager');
 var bodyParser = require('body-parser');
 var app = express();
 var alarms;
 
-var jsonParser = bodyParser.json();
 app.use(express.static(__dirname + '/static'));
-app.use(jsonParser);
-
-app.set('view engine','vash');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', function (req, res) {
-  res.render('index');
+  lcdlib.printMessage(["request from:", req.ip],10000);
+  console.log("get request received");
+  res.sendFile(__dirname +"/views/index.html");
 });
 
 app.post('/', function(req,res){
   console.log(req.body);
-  //lcdlib.printMessage(req.body.message);
-  res.write("200");
+  lcdlib.printMessage(["alarm set for:",req.body.hour+":"+req.body.minute],10000);
+  res.sendStatus(200);
 });
 
 var server = app.listen(8080, function () {

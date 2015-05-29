@@ -27,6 +27,8 @@
     "express": "^4.12.4",
     "jquery": "^2.1.4",
     "lcd": "^1.1.1",
+    "node-schedule": "^0.2.7",
+    "pi-blaster.js": "^0.1.0",
     "vash": "^0.8.7"
   }
 }

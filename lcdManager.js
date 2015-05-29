@@ -1,3 +1,11 @@
+var mode= {
+  time : 0,
+  message :1
+}
+
+var _currentMode =0;
+var _timeIntervalObject;
+
 var Lcd = require('lcd'),
  lcd = new Lcd({
    rs: 25,
@@ -7,28 +15,56 @@ var Lcd = require('lcd'),
    rows: 2
  });
 
-// lcd.on('ready', function() {
-//   setInterval(function() {
-//     printCurrentTime();
-//   }, 1000);
-//   console.log("lcd update");
-// });
+lcd.on('ready', function() {
+  changeMode(mode.time);
+  _timeIntervalObject = setInterval(function() {
+    if(_currentMode == mode.time){
+      printCurrentTime();
+    }
+  }, 30000);
+  console.log("lcd ready");
+});
 
 
-function printMessage(message){
-  lcd.clear();
-  lcd.setCursor(0,0);
-  console.log("printing message")
-  lcd.print(message);
+function printMessage(message,timeout){
+  changeMode(mode.message);
+  lcd.clear(function(){
+    for(var i=0; i< message.length;i++){
+      printLineDelayed(i,message[i],300*i)
+    }
+
+  });
+  setTimeout(function(){
+    changeMode(mode.time)
+  },timeout);
+}
+
+function printLineDelayed(lineNumber,line,delay){
+  setTimeout(function(){
+    console.log("printing line "+line)
+    lcd.setCursor(0,lineNumber);
+    lcd.print(line);
+  },delay);
+}
+
+function changeMode(mode){
+  _currentMode = mode;
+  console.log("switching to mode "+mode);
+  if(mode == 0){
+    printCurrentTime();
+  }
 }
 
 function printCurrentTime(){
-  // lcd.setCursor(4, 0);
-  // var date = new Date();
-  // lcd.print(date.toTimeString().substr(0,8),function(){
-  //   lcd.setCursor(0, 1);
-  //   lcd.print(date.toDateString());
-  // });
+  //changeMode(mode.time)
+  lcd.clear(function(){
+    lcd.setCursor(4, 0);
+    var date = new Date();
+    lcd.print(date.toTimeString().substr(0,5),function(){
+      lcd.setCursor(0, 1);
+      lcd.print(date.toDateString());
+    });
+  });
 }
 
 // If ctrl+c is hit, free resources and exit.
@@ -40,8 +76,13 @@ process.on('SIGINT', function() {
 });
 
 module.exports = {
+
   printMessage : printMessage,
-  printTime : printCurrentTime,
+
+  printTime : function(){
+    _currentMode = mode.time;
+  },
+
   clearLcd: function(){
     lcd.clear();
   }

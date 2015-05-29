@@ -13,11 +13,17 @@ $(document).ready(function(){
     });
   });
   $("#newAlarm").click(function(){
-    var alarm = {
-      hour: $("#hour").val();
-      minute: $("#minute").val();
-    }
+    var alarm = {};
+    alarm.hour = $("#hour").val();
+    alarm.minute = $("#minute").val();
+
     console.log(alarm);
+    $.ajax({
+      "type": "POST",
+      "url": "/",
+      "Content-Type": "application/json",
+      "data": alarm
+    });
   });
 
 

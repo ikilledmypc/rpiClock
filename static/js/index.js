@@ -1,17 +1,4 @@
 $(document).ready(function(){
-  $("#print").click(function(){
-
-    var message = {
-      message : "{test message ipsum"
-    };
-
-    $.ajax({
-      type: "POST",
-      url: "/",
-      data: message,
-      dataType: "application/json"
-    });
-  });
   $("#newAlarm").click(function(){
     var alarm = {};
     alarm.hour = $("#hour").val();
@@ -20,10 +7,24 @@ $(document).ready(function(){
     console.log(alarm);
     $.ajax({
       "type": "POST",
-      "url": "/",
+      "url": "/alarms",
       "Content-Type": "application/json",
+      "success" : function(data){
+        console.log(data);
+        var alarmData = JSON.parse(data);
+        $("#alarm-list").append("<a class='alarmBody list-group-item'>" + alarmData.hour+":"+alarmData.minute + "</a>");
+      },
       "data": alarm
     });
+  });
+
+  $.getJSON( "/alarms", function( data ) {
+    var items = [];
+    $.each( data, function( key, val ) {
+      items.push( "<a class='alarmBody list-group-item'>" + key + "</a>" );
+    });
+    console.log(items);
+    $('#alarm-list').append(items.join(""));
   });
 
 

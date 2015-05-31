@@ -5,6 +5,7 @@ var mode= {
 
 var _currentMode =0;
 var _timeIntervalObject;
+var _lastMinute;
 
 var Lcd = require('lcd'),
  lcd = new Lcd({
@@ -17,11 +18,13 @@ var Lcd = require('lcd'),
 
 lcd.on('ready', function() {
   changeMode(mode.time);
+  var date = new Date();
+  _lastMinute = date.getMinutes();
   _timeIntervalObject = setInterval(function() {
-    if(_currentMode == mode.time){
+    if(_currentMode == mode.time ){
       printCurrentTime();
     }
-  }, 30000);
+  }, 1000);
   console.log("lcd ready");
 });
 
@@ -57,14 +60,17 @@ function changeMode(mode){
 
 function printCurrentTime(){
   //changeMode(mode.time)
-  lcd.clear(function(){
-    lcd.setCursor(4, 0);
-    var date = new Date();
-    lcd.print(date.toTimeString().substr(0,5),function(){
-      lcd.setCursor(0, 1);
-      lcd.print(date.toDateString());
+  var date = new Date();
+  if(date.getMinutes()!= _lastMinute){
+    lcd.clear(function(){
+      lcd.setCursor(4, 0);
+      lcd.print(date.toTimeString().substr(0,5),function(){
+        lcd.setCursor(0, 1);
+        lcd.print(date.toDateString());
+        _lastMinute = date.getMinutes();
+      });
     });
-  });
+  }
 }
 
 // If ctrl+c is hit, free resources and exit.

@@ -1,11 +1,13 @@
 var mode= {
   time : 0,
-  message :1
+  message :1,
+  alarm : 2
 }
 
 var _currentMode =0;
 var _timeIntervalObject;
 var _lastMinute;
+var _isPrinting =false;
 
 var Lcd = require('lcd'),
  lcd = new Lcd({
@@ -22,7 +24,10 @@ lcd.on('ready', function() {
   _lastMinute = date.getMinutes();
   _timeIntervalObject = setInterval(function() {
     if(_currentMode == mode.time ){
-      printCurrentTime();
+        var date = new Date();
+        if(date.getMinutes()!= _lastMinute){
+          printCurrentTime();
+        }
     }
   }, 1000);
   console.log("lcd ready");
@@ -33,13 +38,26 @@ function printMessage(message,timeout){
   changeMode(mode.message);
   lcd.clear(function(){
     for(var i=0; i< message.length;i++){
-      printLineDelayed(i,message[i],300*i)
+      printLine(message[i],i);
     }
-
   });
   setTimeout(function(){
     changeMode(mode.time)
   },timeout);
+}
+
+function printLine(text, line){
+  if(!_isPrinting){
+    _isPrinting = true;
+    lcd.setCursor(0,line);
+    lcd.print(text,function(){
+      _isPrinting = false;
+    });
+  }else{
+    setTimeout(function(){
+      printLine(text, line);
+    },20);
+  }
 }
 
 function printLineDelayed(lineNumber,line,delay){
@@ -51,17 +69,16 @@ function printLineDelayed(lineNumber,line,delay){
 }
 
 function changeMode(mode){
-  _currentMode = mode;
-  console.log("switching to mode "+mode);
-  if(mode == 0){
+  if(mode == 0 && _currentMode != 0){
     printCurrentTime();
   }
+    _currentMode = mode;
+    console.log("switching to mode "+mode);
 }
 
 function printCurrentTime(){
   //changeMode(mode.time)
   var date = new Date();
-  if(date.getMinutes()!= _lastMinute){
     lcd.clear(function(){
       lcd.setCursor(4, 0);
       lcd.print(date.toTimeString().substr(0,5),function(){
@@ -70,7 +87,7 @@ function printCurrentTime(){
         _lastMinute = date.getMinutes();
       });
     });
-  }
+
 }
 
 // If ctrl+c is hit, free resources and exit.

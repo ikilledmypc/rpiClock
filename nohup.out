@@ -1,0 +1,78 @@
+Clock config listening at http://0.0.0.0:8080
+switching to mode 0
+lcd ready
+setting brightness to: 0.5
+setting brightness to: 0.2
+setting brightness to: 0.1
+setting brightness to: 0.05
+setting brightness to: 0.2
+setting brightness to: 0.02
+setting brightness to: 0.1
+setting brightness to: 0.01
+setting brightness to: 0
+setting brightness to: 0.1
+setting brightness to: 0.01
+switching to mode 1
+get request received
+printing line request from:
+printing line 192.168.88.253
+{}
+switching to mode 0
+switching to mode 1
+printing line alarm set for:
+printing line 11:00
+switching to mode 0
+setting brightness to: 0
+alarm fired: 11:00
+switching to mode 1
+printing line alarm! alarm!
+switching to mode 0
+setting brightness to: 0.1
+setting brightness to: 1
+setting brightness to: 0
+setting brightness to: 0.1
+setting brightness to: 0.2
+setting brightness to: 0.3
+setting brightness to: 0.5
+setting brightness to: 0.6
+setting brightness to: 0.8
+setting brightness to: 0.9
+setting brightness to: 1
+setting brightness to: 0.3
+setting brightness to: 0
+setting brightness to: 0.5
+setting brightness to: 0.4
+setting brightness to: 0.6
+setting brightness to: 0.8
+setting brightness to: 0.9
+setting brightness to: 0.2
+setting brightness to: 0.1
+setting brightness to: 0.5
+setting brightness to: 0.05
+setting brightness to: 0.6
+setting brightness to: 0
+setting brightness to: 1
+setting brightness to: 0.01
+setting brightness to: 1
+setting brightness to: 0.5
+setting brightness to: 0.05
+setting brightness to: 1
+switching to mode 1
+get request received
+printing line request from:
+printing line 192.168.88.241
+{ '11:00': 
+   { hour: '11',
+     minute: '00',
+     active: false,
+     job: 
+      { job: [Function],
+        name: '<Anonymous Job 1>',
+        trackInvocation: [Function],
+        stopTrackingInvocation: [Function],
+        cancel: [Function],
+        cancelNext: [Function],
+        nextInvocation: [Function],
+        pendingInvocations: [Function],
+        _events: {} } } }
+switching to mode 0

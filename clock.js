@@ -15,7 +15,7 @@ app.get('/', function (req, res) {
   lcdlib.printMessage(["request from:", req.ip],10000);
   console.log("get request received");
   if(alarmManager.isAlarming()){
-    res.sendFile(__dirname +"/views/cancel.html");
+    res.sendFile(__dirname +"/views/cancelAlarm.html");
   }
   else{
     res.sendFile(__dirname +"/views/index.html");

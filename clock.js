@@ -14,7 +14,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/', function (req, res) {
   lcdlib.printMessage(["request from:", req.ip],10000);
   console.log("get request received");
-  res.sendFile(__dirname +"/views/index.html");
+  if(alarmManager.isAlarming()){
+    res.sendFile(__dirname +"/views/cancel.html");
+  }
+  else{
+    res.sendFile(__dirname +"/views/index.html");
+  }
+
 });
 
 app.post('/', function(req,res){
@@ -25,6 +31,14 @@ app.post('/', function(req,res){
 app.get("/alarms",function(req,res){
   console.log(alarmManager.alarms);
   res.send(JSON.stringify(alarmManager.alarms));
+});
+
+app.post("/alarms/cancel",function(req,res){
+  console.log("alarm canceled");
+  if(alarmManager.isAlarming()){
+    alarmManager.cancelAlarm();
+  }
+  res.sendStatus(200);
 });
 
 app.post("/alarms",function(req,res){

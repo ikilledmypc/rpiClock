@@ -1,7 +1,6 @@
 var mode= {
   time : 0,
-  message :1,
-  alarm : 2
+  message :1
 }
 
 var _currentMode =0;

@@ -1,6 +1,7 @@
 var Alarm = require("./Alarm");
 var schedule = require("node-schedule");
 var lcd = require("./lcdManager");
+var player = require('play-sound')(opts = {});
 var blaster = require('pi-blaster.js');
 var activeAlarm ="";
 var alarms= {};
@@ -14,6 +15,7 @@ function scheduleAlarm(hour,minute){
 }
 
   function fireAlarm(){
+      player.player("../alarm.mp3");
     activeAlarm = setInterval(function(){
       blaster.setPwm(4,0.6);
       setTimeout(function(){

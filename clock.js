@@ -1,11 +1,10 @@
 var express = require('express');
-var vash = require('vash');
 var pwm = require('pi-blaster.js');
 var lcdlib = require('./lcdManager');
 var alarmManager = require('./AlarmManager')
 var bodyParser = require('body-parser');
 var app = express();
-var alarms;
+
 
 app.use(express.static(__dirname + '/static'));
 app.use(bodyParser.json());

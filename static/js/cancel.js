@@ -10,6 +10,7 @@ $(document).ready()
              data : "bla",
              success :function(){
                  alert("alarm canceled");
+                 location.reload(true);
              }
          })
      })

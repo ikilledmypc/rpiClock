@@ -1,10 +1,12 @@
 var Alarm = require("./Alarm");
 var schedule = require("node-schedule");
 var lcd = require("./lcdManager");
-var player = require('play-sound')(opts = {});
 var blaster = require('pi-blaster.js');
 var activeAlarm ="";
 var alarms= {};
+var lame = require('lame');
+var icecast = require('icecast');
+var Speaker = require('speaker');
 
 function scheduleAlarm(hour,minute){
   var job = schedule.scheduleJob( minute+' '+hour+' * * *', function(){
@@ -15,13 +17,23 @@ function scheduleAlarm(hour,minute){
 }
 
   function fireAlarm(){
-      player.player("../alarm.mp3");
-    activeAlarm = setInterval(function(){
-      blaster.setPwm(4,0.6);
-      setTimeout(function(){
-        blaster.setPwm(4,0);
-      },500);
-    },1000);
+      var url = 'http://icecast.omroep.nl/3fm-bb-mp3';
+      icecast.get(url, function (res) {
+
+          // log the HTTP response headers
+          console.error(res.headers);
+
+          // log any "metadata" events that happen
+          res.on('metadata', function (metadata) {
+              var parsed = icecast.parse(metadata);
+              console.error(parsed);
+          });
+
+          // Let's play the music (assuming MP3 data).
+          // lame decodes and Speaker sends to speakers!
+          res.pipe(new lame.Decoder())
+              .pipe(new Speaker());
+      });
   }
 
   function cancelAlarm(){

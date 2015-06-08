@@ -3,6 +3,9 @@ var pwm = require('pi-blaster.js');
 var lcdlib = require('./lcdManager');
 var alarmManager = require('./AlarmManager')
 var bodyParser = require('body-parser');
+var lame = require('lame');
+var icecast = require('icecast');
+var Speaker = require('speaker');
 var app = express();
 
 

@@ -29,10 +29,10 @@ function scheduleRadioAlarm(hour,minute,url){
   }
 
     function fireRadioAlarm(url){
-       activeAlarm = icecast.get(url, function (res) {
+        icecast.get(url, function (res) {
             // log the HTTP response headers
             console.error(res.headers);
-
+            activeAlarm = res;
             // log any "metadata" events that happen
             res.on('metadata', function (metadata) {
                 var parsed = icecast.parse(metadata);

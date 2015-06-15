@@ -30,7 +30,6 @@ function scheduleRadioAlarm(hour,minute,url){
 
     function fireRadioAlarm(url){
        activeAlarm = icecast.get(url, function (res) {
-
             // log the HTTP response headers
             console.error(res.headers);
 

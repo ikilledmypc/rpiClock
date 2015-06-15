@@ -46,7 +46,7 @@ app.post("/alarms/cancel",function(req,res){
 
 app.post("/alarms",function(req,res){
   lcdlib.printMessage(["alarm set for:",req.body.hour+":"+req.body.minute],10000);
-  alarmManager.setAlarm(req.body.hour, req.body.minute);
+  alarmManager.setRadioAlarm(req.body.hour, req.body.minute,req.body.url);
   res.send(JSON.stringify(req.body));
 });
 

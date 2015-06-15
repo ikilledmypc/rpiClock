@@ -3,6 +3,7 @@ $(document).ready(function(){
     var alarm = {};
     alarm.hour = $("#hour").val();
     alarm.minute = $("#minute").val();
+    alarm.url = $('#url').val();
 
     console.log(alarm);
     $.ajax({

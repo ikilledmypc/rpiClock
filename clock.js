@@ -13,23 +13,6 @@ app.use(express.static(__dirname + '/static'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-var url = 'http://icecast.omroep.nl/3fm-bb-mp3';
-icecast.get(url, function (res) {
-
-  // log the HTTP response headers
-  console.error(res.headers);
-
-  // log any "metadata" events that happen
-  res.on('metadata', function (metadata) {
-    var parsed = icecast.parse(metadata);
-    console.error(parsed);
-  });
-
-  // Let's play the music (assuming MP3 data).
-  // lame decodes and Speaker sends to speakers!
-  res.pipe(new lame.Decoder())
-      .pipe(new Speaker());
-});
 
 app.get('/', function (req, res) {
   lcdlib.printMessage(["request from:", req.ip],10000);

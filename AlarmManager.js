@@ -48,7 +48,7 @@ function scheduleRadioAlarm(hour,minute,url){
 
   function cancelAlarm(){
     if(activeAlarm != ""){
-      activeAlarm.close();
+      activeAlarm.unpipe();
       activeAlarm ="";
     }
   }

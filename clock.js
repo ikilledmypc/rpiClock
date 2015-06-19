@@ -3,8 +3,8 @@ var express = require('express');
 var lcdlib = require('./lcdManager');
 var alarmManager = require('./AlarmManager')
 var bodyParser = require('body-parser');
-var alarms = require("/routes/alarms");
-var settings = require("/routes/settings");
+var alarms = require("/routes/alarms.js");
+var settings = require("/routes/settings.js");
 var app = express();
 
 

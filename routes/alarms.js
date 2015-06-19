@@ -25,3 +25,5 @@ router.post("/",function(req,res){
     alarmManager.setRadioAlarm(req.body.hour, req.body.minute,req.body.url);
     res.send(JSON.stringify(req.body));
 });
+
+module.exports = router;

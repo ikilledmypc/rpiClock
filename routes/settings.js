@@ -29,3 +29,5 @@ function setBrightness(amount){
     console.log("setting brightness to: "+_currentBrightness);
     pwm.setPwm(18,amount/100);
 }
+
+module.exports = router;

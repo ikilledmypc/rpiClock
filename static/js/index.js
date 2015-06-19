@@ -13,7 +13,7 @@ $(document).ready(function(){
       "success" : function(data){
         console.log(data);
         var alarmData = JSON.parse(data);
-        $("#alarm-list").append("<a class='alarmBody list-group-item'>" + alarmData.hour+":"+alarmData.minute + "</a>");
+        $("#alarm-list").append("<a class='alarmBody list-group-item'>" + alarmData.hour+":"+alarmData.minute + "</a><div class='alarmBody'>cancel alarm</div>");
       },
       "data": alarm
     });

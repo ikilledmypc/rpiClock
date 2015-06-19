@@ -76,3 +76,188 @@ printing line 192.168.88.241
         pendingInvocations: [Function],
         _events: {} } } }
 switching to mode 0
+Clock config listening at http://0.0.0.0:8080
+switching to mode 0
+lcd ready
+switching to mode 1
+get request received
+{}
+switching to mode 0
+switching to mode 1
+switching to mode 0
+switching to mode 1
+get request received
+{ '07:20': 
+   { hour: '07',
+     minute: '20',
+     active: false,
+     job: 
+      { job: [Function],
+        name: '<Anonymous Job 1>',
+        trackInvocation: [Function],
+        stopTrackingInvocation: [Function],
+        cancel: [Function],
+        cancelNext: [Function],
+        nextInvocation: [Function],
+        pendingInvocations: [Function],
+        _events: {} } } }
+switching to mode 0
+setting brightness to: 0.004
+switching to mode 1
+{ 'icy-notice1': '<BR>This stream requires <a href="http://www.winamp.com/">Winamp</a><BR>',
+  'icy-notice2': 'SHOUTcast Distributed Network Audio Server/Linux v1.9.8<BR>',
+  'icy-name': 'Sample Stream',
+  'icy-genre': 'Metal',
+  'icy-url': 'http://www.radioheavymetal.com/',
+  'content-type': 'audio/mpeg',
+  'icy-pub': '1',
+  'icy-metaint': '32768',
+  'icy-br': '128' }
+{ StreamTitle: 'Faith No More - Matador', StreamUrl: '' }
+switching to mode 0
+setting brightness to: 0.004
+switching to mode 1
+get request received
+alarm canceled
+switching to mode 1
+get request received
+{ '07:20': 
+   { hour: '07',
+     minute: '20',
+     active: false,
+     job: 
+      { job: [Function],
+        name: '<Anonymous Job 1>',
+        trackInvocation: [Function],
+        stopTrackingInvocation: [Function],
+        cancel: [Function],
+        cancelNext: [Function],
+        nextInvocation: [Function],
+        pendingInvocations: [Function],
+        _events: {} } } }
+switching to mode 0
+switching to mode 0
+switching to mode 1
+get request received
+{ '07:20': 
+   { hour: '07',
+     minute: '20',
+     active: false,
+     job: 
+      { job: [Function],
+        name: '<Anonymous Job 1>',
+        trackInvocation: [Function],
+        stopTrackingInvocation: [Function],
+        cancel: [Function],
+        cancelNext: [Function],
+        nextInvocation: [Function],
+        pendingInvocations: [Function],
+        _events: {} } } }
+switching to mode 0
+setting brightness to: 1
+setting brightness to: 0.004
+setting brightness to: 0.001
+switching to mode 1
+{ 'icy-notice1': '<BR>This stream requires <a href="http://www.winamp.com/">Winamp</a><BR>',
+  'icy-notice2': 'SHOUTcast Distributed Network Audio Server/Linux v1.9.8<BR>',
+  'icy-name': 'Sample Stream',
+  'icy-genre': 'Metal',
+  'icy-url': 'http://www.radioheavymetal.com/',
+  'content-type': 'audio/mpeg',
+  'icy-pub': '1',
+  'icy-metaint': '32768',
+  'icy-br': '128' }
+{ StreamTitle: 'Sienna Skies - In My Bones', StreamUrl: '' }
+switching to mode 0
+{ StreamTitle: '10Belphegor Greetings', StreamUrl: '' }
+switching to mode 1
+get request received
+switching to mode 0
+{ StreamTitle: 'Tuatha de Danann - Immarama', StreamUrl: '' }
+alarm canceled
+switching to mode 1
+get request received
+{ '07:20': 
+   { hour: '07',
+     minute: '20',
+     active: false,
+     job: 
+      { job: [Function],
+        name: '<Anonymous Job 1>',
+        trackInvocation: [Function],
+        stopTrackingInvocation: [Function],
+        cancel: [Function],
+        cancelNext: [Function],
+        nextInvocation: [Function],
+        pendingInvocations: [Function],
+        _events: {} } } }
+switching to mode 0
+switching to mode 1
+{ 'icy-notice1': '<BR>This stream requires <a href="http://www.winamp.com/">Winamp</a><BR>',
+  'icy-notice2': 'SHOUTcast Distributed Network Audio Server/Linux v1.9.8<BR>',
+  'icy-name': 'Sample Stream',
+  'icy-genre': 'Metal',
+  'icy-url': 'http://www.radioheavymetal.com/',
+  'content-type': 'audio/mpeg',
+  'icy-pub': '1',
+  'icy-metaint': '32768',
+  'icy-br': '128' }
+{ StreamTitle: 'Saving Grace - The Banks Of The Otara',
+  StreamUrl: '' }
+switching to mode 0
+{ StreamTitle: 'Sinbreed - Shadows', StreamUrl: '' }
+switching to mode 1
+get request received
+alarm canceled
+switching to mode 1
+get request received
+{ '07:20': 
+   { hour: '07',
+     minute: '20',
+     active: false,
+     job: 
+      { job: [Function],
+        name: '<Anonymous Job 1>',
+        trackInvocation: [Function],
+        stopTrackingInvocation: [Function],
+        cancel: [Function],
+        cancelNext: [Function],
+        nextInvocation: [Function],
+        pendingInvocations: [Function],
+        _events: {} } } }
+switching to mode 0
+switching to mode 0
+switching to mode 1
+{ 'icy-notice1': '<BR>This stream requires <a href="http://www.winamp.com/">Winamp</a><BR>',
+  'icy-notice2': 'SHOUTcast Distributed Network Audio Server/Linux v1.9.8<BR>',
+  'icy-name': 'Sample Stream',
+  'icy-genre': 'Metal',
+  'icy-url': 'http://www.radioheavymetal.com/',
+  'content-type': 'audio/mpeg',
+  'icy-pub': '1',
+  'icy-metaint': '32768',
+  'icy-br': '128' }
+{ StreamTitle: 'Grave Digger - War God', StreamUrl: '' }
+switching to mode 0
+{ StreamTitle: 'Grailknights - Sea Song', StreamUrl: '' }
+switching to mode 1
+get request received
+alarm canceled
+switching to mode 1
+get request received
+{ '07:20': 
+   { hour: '07',
+     minute: '20',
+     active: false,
+     job: 
+      { job: [Function],
+        name: '<Anonymous Job 1>',
+        trackInvocation: [Function],
+        stopTrackingInvocation: [Function],
+        cancel: [Function],
+        cancelNext: [Function],
+        nextInvocation: [Function],
+        pendingInvocations: [Function],
+        _events: {} } } }
+switching to mode 0
+switching to mode 0

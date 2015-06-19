@@ -1,7 +1,6 @@
 var Alarm = require("./Alarm");
 var schedule = require("node-schedule");
 var lcd = require("./lcdManager");
-var blaster = require('pi-blaster.js');
 var activeAlarm ="";
 var alarms= {};
 var lame = require('lame');

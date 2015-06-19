@@ -3,7 +3,7 @@
  */
 var express = require('express');
 var router = express.Router();
-var lcdlib = require('./lcdManager');
+var lcdlib = require('./../lcdManager');
 var alarmManager = require('./AlarmManager')
 
 

@@ -1,5 +1,4 @@
 var express = require('express');
-
 var lcdlib = require('./lcdManager');
 var alarmManager = require('./AlarmManager')
 var bodyParser = require('body-parser');

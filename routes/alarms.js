@@ -4,7 +4,7 @@
 var express = require('express');
 var router = express.Router();
 var lcdlib = require('./../lcdManager');
-var alarmManager = require('./AlarmManager')
+var alarmManager = require('./../AlarmManager')
 
 
 router.get("/",function(req,res){
@@ -18,6 +18,12 @@ router.post("/cancel",function(req,res){
         alarmManager.cancelAlarm();
     }
     res.sendStatus(200);
+});
+
+router.delete("/:alarm",function(req,res){
+    console.log("received request to remove: "+req.params.alarm);
+    alarmManager.removeAlarm(req.params.alarm);
+    res.send(req.params.alarm);
 });
 
 router.post("/",function(req,res){

@@ -27,6 +27,13 @@ function scheduleRadioAlarm(hour,minute,url){
         //todo buzzer or general alarm
   }
 
+function removeAlarm(alarm){
+    console.log("removing: "+alarm);
+    var alarmJob = alarms[alarm];
+    alarmJob.cancel();
+    delete alarms[alarm];
+}
+
     function fireRadioAlarm(url){
         icecast.get(url, function (res) {
             // log the HTTP response headers
@@ -57,7 +64,8 @@ module.exports = {
   setRadioAlarm : scheduleRadioAlarm,
   alarms : alarms,
   cancelAlarm : cancelAlarm,
+  removeAlarm : removeAlarm,
   isAlarming : function(){
     return activeAlarm != "";
   }
-}
+};

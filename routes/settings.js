@@ -5,20 +5,22 @@
 var express = require('express');
 var router = express.Router();
 var pwm = require('pi-blaster.js');
+var path = require('path');
 var _currentBrightness = 100;
+var rootDir = path.resolve(__dirname,"..");
 
 //defaults-------------
 setBrightness(_currentBrightness);
 
 
 router.get("/", function(req,res){
-    res.sendFile("/views/settings.html");
+    res.sendFile("/views/settings.html",{root : rootDir});
 });
 
 router.post("/brightness",function(req,res){
     _currentBrightness = req.body.amount;
     setBrightness(_currentBrightness);
-    res.sendStatus(200);
+    res.send(_currentBrightness);
 });
 
 router.get("/brightness",function(req,res){

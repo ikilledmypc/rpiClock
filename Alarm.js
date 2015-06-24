@@ -6,4 +6,8 @@ var Alarm = function(hour,minute,job){
   this.job = job;
 }
 
+Alarm.prototype.cancel = function(){
+  this.job.cancel();
+};
+
 module.exports = Alarm;

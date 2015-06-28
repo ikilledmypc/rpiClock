@@ -3,7 +3,9 @@ var schedule = require("node-schedule");
 var lcd = require("./lcdManager");
 var activeAlarm ="";
 var alarms= {};
+var http = require("http");
 var lame = require('lame');
+var say = require('say');
 var icecast = require('icecast');
 var Speaker = require('speaker');
 
@@ -56,8 +58,35 @@ function removeAlarm(alarm){
     if(activeAlarm != ""){
       activeAlarm.unpipe();
       activeAlarm ="";
+      say.speak(null,"Alarm has been cancelled, good morning sir!",function(){
+          announceWeather();
+      });
     }
   }
+
+function announceWeather(){
+
+    http.get("http://api.openweathermap.org/data/2.5/forecast/daily?id=2756253&cnt=1&units=metric", function(res) {
+        var body = '';
+        res.on('data', function(d) {
+            body += d;
+        });
+        res.on('end', function() {
+            var weather="";
+            var object = JSON.parse(body);
+            var forcasts = object.list;
+            weather += "today's weather will be ";
+            weather += forcasts[0].weather[0].description;
+            weather += " with a temperature of " +forcasts[0].temp.day+" degrees celsius";
+            console.log(weather);
+            speakLine(weather);
+        });
+    });
+}
+
+function speakLine(line){
+    say.speak(null,line);
+}
 
 module.exports = {
   setAlarm : scheduleAlarm,

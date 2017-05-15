@@ -29,6 +29,8 @@
     "lcd": "^1.1.1",
     "node-schedule": "^0.2.7",
     "pi-blaster.js": "^0.1.0",
+    "play-sound": "0.0.5",
+    "say": "^0.6.0",
     "vash": "^0.8.7"
   }
 }
